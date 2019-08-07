@@ -31,23 +31,22 @@ public class Solution {
         }
 
         //Solution
-        int temp;
-        //For number of shifts
-        for(int i=0;i<d;i++)
+
+        // Create a new array
+        int[] newArray = new int[n];
+
+        for(int i=0;i<n;i++)
         {
-            temp = a[0]; //moving first element to temp
-            //for a single shift
-            for(int j=0;j<n-1;j++){
-                a[j] = a[j+1];
-            }
-            a[n-1]=temp; //moving temp to last element
+            // Find out the final location of the element after d shifts and store it in the new array. Read the newLocation formula carefully
+            int newLocation = (i+(n-d))%n;
+            newArray[newLocation] = a[i];
         }
         scanner.close();
 
-        //displaying
+        //Displaying the new array
         for(int i=0;i<n;i++)
         {   
-            bufferedWriter.write(a[i]+" ");
+            bufferedWriter.write(newArray[i]+" ");
         }
         
         bufferedWriter.close();
